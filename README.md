@@ -1,176 +1,348 @@
-# 🧠 Knowledge Assistant
+# 🧠 Knowledge Assistant# 🧠 Knowledge Assistant
 
-A powerful AI-powered document management and chat system that provides intelligent answers with source attribution and detailed reasoning.
 
-## ✨ Features
 
-### 📄 Document Processing
-- **Multi-format support**: PDF, DOCX, images (JPG, PNG, TIFF), plain text
-- **Advanced OCR**: Extract text from images with confidence scoring
-- **Smart chunking**: Automatic text segmentation for optimal search
-- **Vector embeddings**: Semantic search using Google's Gemini AI
+An intelligent document management and AI-powered Q&A system built with FastAPI, React TypeScript, and Google Gemini AI.A powerful AI-powered document management and chat system that provides intelligent answers with source attribution and detailed reasoning.
 
-### 💬 Intelligent Chat
+
+
+## ✨ Features## ✨ Features
+
+
+
+- **🔐 User Authentication** - Secure JWT-based authentication### 📄 Document Processing
+
+- **📄 Document Upload** - Support for PDF, TXT, DOCX files with drag-and-drop- **Multi-format support**: PDF, DOCX, images (JPG, PNG, TIFF), plain text
+
+- **💬 Chat Upload** - Process chat conversations from various platforms- **Advanced OCR**: Extract text from images with confidence scoring
+
+- **🤖 AI-Powered Q&A** - Ask questions about your documents using Gemini AI- **Smart chunking**: Automatic text segmentation for optimal search
+
+- **🔍 Vector Search** - Intelligent document retrieval using ChromaDB- **Vector embeddings**: Semantic search using Google's Gemini AI
+
+- **📊 Document Management** - Organize, search, and filter your documents
+
+- **🎨 Modern UI** - Beautiful React TypeScript interface with Tailwind CSS### 💬 Intelligent Chat
+
 - **Context-aware responses**: AI answers based on your documents
-- **Source attribution**: Every answer includes source citations
-- **Confidence scoring**: Know how reliable each response is
-- **Multiple modes**: Chat, summarize, insights, and planning modes
-- **Detailed reasoning**: Understand how the AI reached its conclusions
 
-### 🔗 Public Sharing
-- **Secure sharing**: Generate public links for documents
-- **Expiration controls**: Set time limits on shared documents
-- **Public browsing**: Explore publicly available documents
+## 🏗️ Tech Stack- **Source attribution**: Every answer includes source citations
+
+- **Confidence scoring**: Know how reliable each response is
+
+### Backend- **Multiple modes**: Chat, summarize, insights, and planning modes
+
+- **FastAPI** - High-performance Python web framework- **Detailed reasoning**: Understand how the AI reached its conclusions
+
+- **MongoDB Atlas** - Cloud database for user and document management
+
+- **ChromaDB** - Vector database for document embeddings### 🔗 Public Sharing
+
+- **Google Gemini 2.0 Flash** - AI model for text generation and embeddings- **Secure sharing**: Generate public links for documents
+
+- **JWT Authentication** - Secure token-based authentication- **Expiration controls**: Set time limits on shared documents
+
+- **Argon2** - Password hashing- **Public browsing**: Explore publicly available documents
+
 - **File viewer**: Built-in support for viewing different file types
 
-### 🏗️ Technical Stack
-- **Backend**: FastAPI with Python 3.11+
-- **Database**: PostgreSQL with vector operations
-- **AI**: Google Gemini AI for embeddings and chat
-- **OCR**: Tesseract for image text extraction
-- **Containerization**: Docker and Docker Compose
+### Frontend
+
+- **React 19** - Modern React with latest features### 🏗️ Technical Stack
+
+- **TypeScript** - Type-safe development- **Backend**: FastAPI with Python 3.11+
+
+- **Vite** - Fast development and build tool- **Database**: PostgreSQL with vector operations
+
+- **Tailwind CSS v4** - Utility-first CSS framework- **AI**: Google Gemini AI for embeddings and chat
+
+- **React Router** - Client-side routing- **OCR**: Tesseract for image text extraction
+
+- **Axios** - HTTP client for API calls- **Containerization**: Docker and Docker Compose
+
+- **Lucide Icons** - Beautiful icon library
 
 ## 🚀 Quick Start
 
+## 📋 Prerequisites
+
 ### Prerequisites
-- Python 3.11 or higher
-- Docker and Docker Compose
-- Git
-- A Google Gemini API key ([Get one here](https://makersuite.google.com/app/apikey))
+
+- **Python 3.8+**- Python 3.11 or higher
+
+- **Node.js 16+**- Docker and Docker Compose
+
+- **npm or yarn**- Git
+
+- **MongoDB Atlas account**- A Google Gemini API key ([Get one here](https://makersuite.google.com/app/apikey))
+
+- **Google Gemini API key**
 
 ### 1. Clone and Setup
-```bash
+
+## 🚀 Quick Start```bash
+
 git clone <your-repo-url>
-cd py_fast
 
-# Run the automated setup script
-./setup.sh
-```
+### 1. Clone the Repositorycd py_fast
 
-The setup script will:
-- Install system dependencies
-- Create Python virtual environment
-- Install Python packages
+```bash
+
+git clone https://github.com/harishb2006/know.git# Run the automated setup script
+
+cd know./setup.sh
+
+``````
+
+
+
+### 2. Run SetupThe setup script will:
+
+```bash- Install system dependencies
+
+./scripts/setup.sh- Create Python virtual environment
+
+```- Install Python packages
+
 - Setup environment variables
-- Start database services
-- Create database tables
 
-### 2. Manual Setup (Alternative)
+### 3. Configure Environment- Start database services
+
+Edit `.env` file with your credentials:- Create database tables
+
+```env
+
+# Gemini AI Configuration### 2. Manual Setup (Alternative)
+
+GEMINI_API_KEY=your_gemini_api_key_here
 
 If you prefer manual setup:
 
-```bash
-# 1. Install system dependencies (Ubuntu/Debian)
-sudo apt-get update
-sudo apt-get install -y python3 python3-pip python3-venv postgresql-client tesseract-ocr docker.io docker-compose
+# MongoDB Configuration
 
-# 2. Create virtual environment
-python3 -m venv venv
+MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/knowledge_db```bash
+
+# 1. Install system dependencies (Ubuntu/Debian)
+
+# JWT Configurationsudo apt-get update
+
+JWT_SECRET_KEY=your_super_secret_jwt_key_heresudo apt-get install -y python3 python3-pip python3-venv postgresql-client tesseract-ocr docker.io docker-compose
+
+JWT_ALGORITHM=HS256
+
+JWT_ACCESS_TOKEN_EXPIRE_MINUTES=30# 2. Create virtual environment
+
+```python3 -m venv venv
+
 source venv/bin/activate
 
-# 3. Install Python dependencies
-pip install -r requirements.txt
+### 4. Start the Application
+
+```bash# 3. Install Python dependencies
+
+./scripts/start.shpip install -r requirements.txt
+
+```
 
 # 4. Setup environment
-cp .env.example .env
-# Edit .env file and add your GEMINI_API_KEY
 
-# 5. Start services
+### 5. Access the Applicationcp .env.example .env
+
+- **Frontend**: http://localhost:5177# Edit .env file and add your GEMINI_API_KEY
+
+- **Backend API**: http://localhost:8000
+
+- **API Documentation**: http://localhost:8000/docs# 5. Start services
+
 docker-compose up -d postgres redis
 
+## 📁 Project Structure
+
 # 6. Create uploads directory
-mkdir -p uploads
+
+```mkdir -p uploads
+
+knowledge-assistant/```
+
+├── backend/                 # FastAPI backend
+
+│   ├── api/                # API route handlers### 3. Start the Application
+
+│   ├── models/             # Pydantic models and auth
+
+│   ├── services/           # Business logic and utilities```bash
+
+│   │   ├── database.py     # MongoDB connection# Activate virtual environment
+
+│   │   ├── vectorstore.py  # ChromaDB integrationsource venv/bin/activate
+
+│   │   └── utils.py        # Document processing
+
+│   ├── main.py            # FastAPI application# Start the backend server
+
+│   └── __init__.pypython main.py
+
+├── frontend/               # React TypeScript frontend```
+
+│   ├── public/            # Static assets
+
+│   ├── src/The API will be available at:
+
+│   │   ├── components/    # React components- **API Server**: http://localhost:8000
+
+│   │   │   ├── Auth/      # Authentication components- **API Documentation**: http://localhost:8000/docs
+
+│   │   │   └── Dashboard/ # Main app components- **Health Check**: http://localhost:8000/health
+
+│   │   ├── services/      # API service layer
+
+│   │   ├── types/         # TypeScript type definitions## 📚 API Usage
+
+│   │   └── main.tsx       # Application entry point
+
+│   ├── package.json### Upload a Document
+
+│   └── vite.config.ts```bash
+
+├── scripts/               # Utility scriptscurl -X POST "http://localhost:8000/api/documents/upload" \
+
+│   ├── setup.sh          # Development setup  -H "Content-Type: multipart/form-data" \
+
+│   └── start.sh          # Application startup  -F "file=@your-document.pdf" \
+
+├── uploads/              # Document storage  -F "is_public=false"
+
+├── chroma_db/           # Vector database files```
+
+├── requirements.txt     # Python dependencies
+
+├── .env.example        # Environment template### Search Documents
+
+└── README.md```bash
+
+```curl -X GET "http://localhost:8000/api/documents/search?query=your%20search%20query&k=5"
+
 ```
 
-### 3. Start the Application
-
-```bash
-# Activate virtual environment
-source venv/bin/activate
-
-# Start the backend server
-python main.py
-```
-
-The API will be available at:
-- **API Server**: http://localhost:8000
-- **API Documentation**: http://localhost:8000/docs
-- **Health Check**: http://localhost:8000/health
-
-## 📚 API Usage
-
-### Upload a Document
-```bash
-curl -X POST "http://localhost:8000/api/documents/upload" \
-  -H "Content-Type: multipart/form-data" \
-  -F "file=@your-document.pdf" \
-  -F "is_public=false"
-```
-
-### Search Documents
-```bash
-curl -X GET "http://localhost:8000/api/documents/search?query=your%20search%20query&k=5"
-```
+## 🛠️ API Endpoints
 
 ### Chat with Documents
-```bash
-curl -X POST "http://localhost:8000/api/chat/" \
-  -H "Content-Type: application/json" \
-  -d '{
+
+### Authentication```bash
+
+- `POST /register` - Register new usercurl -X POST "http://localhost:8000/api/chat/" \
+
+- `POST /login` - User login  -H "Content-Type: application/json" \
+
+- `GET /me` - Get current user info  -d '{
+
     "message": "What are the main topics in my documents?",
-    "mode": "chat",
-    "max_sources": 5
-  }'
-```
 
-### Create Public Share
-```bash
+### Documents    "mode": "chat",
+
+- `POST /upload` - Upload document    "max_sources": 5
+
+- `GET /documents` - List user documents  }'
+
+- `DELETE /documents/{doc_id}` - Delete document```
+
+
+
+### Chat### Create Public Share
+
+- `POST /upload-chat` - Upload chat conversation```bash
+
 curl -X POST "http://localhost:8000/api/public/share" \
-  -H "Content-Type: application/json" \
-  -d '{
+
+### AI Q&A  -H "Content-Type: application/json" \
+
+- `POST /ask` - Ask questions about documents  -d '{
+
     "document_id": "your-document-id",
-    "expires_in_days": 30
+
+## 🔧 Development    "expires_in_days": 30
+
   }'
+
+### Backend Development```
+
+```bash
+
+# Activate virtual environment## 🗂️ Project Structure
+
+source venv/bin/activate
+
 ```
 
-## 🗂️ Project Structure
+# Run backend server with auto-reloadpy_fast/
 
-```
-py_fast/
-├── 📄 main.py                 # FastAPI application entry point
-├── 🐳 docker-compose.yml      # Docker services configuration
+python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload├── 📄 main.py                 # FastAPI application entry point
+
+```├── 🐳 docker-compose.yml      # Docker services configuration
+
 ├── 📦 requirements.txt        # Python dependencies
-├── 🔧 .env.example           # Environment variables template
-├── 🚀 setup.sh               # Automated setup script
-├── 📖 README.md              # This file
-├── 
+
+### Frontend Development├── 🔧 .env.example           # Environment variables template
+
+```bash├── 🚀 setup.sh               # Automated setup script
+
+# Navigate to frontend directory├── 📖 README.md              # This file
+
+cd frontend├── 
+
 ├── 📁 app/                   # Core application code
-│   ├── 🗄️  database.py       # Database connection and session management
-│   ├── 📋 models.py          # SQLAlchemy database models
-│   └── ⚙️  config.py         # Application configuration
+
+# Start development server│   ├── 🗄️  database.py       # Database connection and session management
+
+npm run dev│   ├── 📋 models.py          # SQLAlchemy database models
+
+```│   └── ⚙️  config.py         # Application configuration
+
 ├── 
-├── 📁 routes/                # API endpoints
+
+## 🔒 Security├── 📁 routes/                # API endpoints
+
 │   ├── 📄 documents.py       # Document upload and search endpoints
-│   ├── 💬 chat.py            # Chat and AI interaction endpoints
-│   └── 🔗 public.py          # Public sharing endpoints
-├── 
-├── 📁 services/              # Business logic
+
+- **JWT Authentication**: Secure token-based authentication│   ├── 💬 chat.py            # Chat and AI interaction endpoints
+
+- **Password Hashing**: Argon2 for secure password storage│   └── 🔗 public.py          # Public sharing endpoints
+
+- **CORS Protection**: Configured for frontend-backend communication├── 
+
+- **Input Validation**: Comprehensive request validation├── 📁 services/              # Business logic
+
 │   ├── 📄 document_service.py # Document processing and search
-│   ├── 🧠 embedding_service.py # Vector embedding generation
+
+## 🤝 Contributing│   ├── 🧠 embedding_service.py # Vector embedding generation
+
 │   ├── 💬 chat_service.py     # AI chat with source attribution
-│   └── 👁️  ocr_service.py     # OCR text extraction
-└── 
-└── 📁 uploads/              # Uploaded files storage
-```
+
+1. Fork the repository│   └── 👁️  ocr_service.py     # OCR text extraction
+
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)└── 
+
+3. Commit your changes (`git commit -m 'Add amazing feature'`)└── 📁 uploads/              # Uploaded files storage
+
+4. Push to the branch (`git push origin feature/amazing-feature`)```
+
+5. Open a Pull Request
 
 ## 📊 Database Models
 
+## 📝 License
+
 ### Document
-Stores uploaded file information and extracted content.
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.Stores uploaded file information and extracted content.
+
 ```sql
-- id (UUID): Unique document identifier
+
+---- id (UUID): Unique document identifier
+
 - filename (String): Original filename
-- file_type (String): File extension (pdf, docx, jpg, etc.)
+
+**Made with ❤️ by [Harish](https://github.com/harishb2006)**- file_type (String): File extension (pdf, docx, jpg, etc.)
 - content (Text): Extracted text content
 - file_size (Integer): File size in bytes
 - is_public (Boolean): Whether document is publicly accessible
